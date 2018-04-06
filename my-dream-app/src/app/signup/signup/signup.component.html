@@ -1,0 +1,101 @@
+<!--TODO: CREATE NGIF to handle the error icon for the email and other inputs @ line 63 -->
+
+<!--<div id="page-mask">-->
+<div class="testbox">
+  <h1>Registration</h1>
+
+  <!--<form action="/">-->
+  <form [formGroup]="signupForm" (ngSugbmit)="onSubmit()">
+    <hr>
+    <div class="accounttype">
+      <input
+        type="radio"
+        value="None"
+        id="radioOne"
+        name="account"
+        checked/>
+      <label
+        for="radioOne"
+        class="radio">
+        Personal
+      </label>
+      <input
+        type="radio"
+        value="None"
+        id="radioTwo"
+        name="account"/>
+      <label for="radioTwo" class="radio">Company</label>
+    </div>
+    <hr>
+
+    <!-- userData Information -->
+    <div class="row">
+      <div formGroupName="userData">
+
+        <!-- Trying to add error sign if the password is not created properly -->
+        <div class="col-xs-right">
+          <input
+            type="text"
+            name="name"
+            id="email"
+            placeholder="Email"
+            [formControlName]="'email'"
+            required/>
+          <!--<i  *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched" class="icon-ban-circle"></i>-->
+          <label id="envelope" for="name"><i class="icon-envelope"
+                                             style="font-size: 20px; padding-left: 5px;"></i></label>
+        </div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          [formControlName]="'name'"
+          required/>
+        <label id="emailLabel" for="name"><i class="icon-user" style="font-size: 20px; padding-left: 7px;"></i></label>
+        <input
+          type="password"
+          name="name"
+          id="password"
+          placeholder="Password"
+          [formControlName]="'password'"
+          required/>
+        <!--<label id="icon" for="name"><i class="icon-envelope" style="font-size: 20px; padding-left: 5px;"></i></label>-->
+        <label for="name"><i class="icon-shield" style="font-size: 20px; padding-left: 5px;"></i></label>
+
+        <!--<div class="gender">-->
+        <!--<input-->
+        <!--type="radio"-->
+        <!--value="None"-->
+        <!--id="male"-->
+        <!--name="gender"-->
+        <!--checked/>-->
+        <!--<label for="male" class="radio">Male</label>-->
+        <!--<input-->
+        <!--type="radio"-->
+        <!--value="None"-->
+        <!--id="female"-->
+        <!--name="gender"/>-->
+        <!--<label for="female" class="radio">Female</label>-->
+        <!--</div>-->
+
+        <div class="radio" *ngFor="let gender of genders">
+
+          <input type="radio" #inputRadio
+                 [formControlName]="'gender'"
+                 [value]="gender"
+                 class="genderRadio">
+          <label class="radio">
+            {{ gender }}
+          </label>
+        </div>
+
+
+      </div>
+    </div>
+    <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+    <!--<a href="#" (click)="onSubmit()" class="button">Register</a>-->
+    <button id="submitFormButton" (click)="onSubmit()" class="button">Register</button>
+  </form>
+</div>
+<!--</div>-->

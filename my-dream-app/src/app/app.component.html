@@ -1,0 +1,90 @@
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+          integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <!--The content below is only a placeholder and can be replaced.-->
+  <!-- For signup.component.html -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet'
+        type='text/css'>
+
+
+  // Font Awesome
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  <script defer src="/static/fontawesome/fontawesome-all.js"></script>
+
+
+</head>
+<body ng-app="BlankApp" ng-cloak>
+<!--
+  Your HTML content here
+-->
+<!-- Font Awesome -->
+<!--<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>-->
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- Your application bootstrap  -->
+<script type="text/javascript">
+  /**
+   * You must include the dependency on 'ngMaterial'
+   */
+  angular.module('BlankApp', ['ngMaterial']);
+</script>
+
+</body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup">Sign Up</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" (click)="switchShowSearchBar()" style="cursor: pointer;">Search</a>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users" style="cursor: pointer;">Manage Users</a>
+      </li>
+    </ul>
+
+
+    <app-search-bar *ngIf="showSearchBar"></app-search-bar>
+    <!-- Search bar not needed-->
+    <!--<form class="form-inline my-2 my-lg-0">-->
+    <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
+
+    <!--<form class="form-wrapper cf">-->
+      <!--<input type="text" placeholder="Search here..." required>-->
+      <!--<button type="submit">Search</button>-->
+    <!--</form>-->
+
+  </div>
+</nav>
+<div class="container">
+  <!--<div class="row">-->
+  <router-outlet></router-outlet>
+  <!--</div>-->
+</div>
+
